@@ -12,3 +12,7 @@ In this chapter we will be talking about URDF Files
 
 **What are URDF files?**
   URDF files stand for *Unified Robot Description Format*. URDF is an XML format that describes a robot,its parts, its joints, dimensions, and so on. 
+
+
+**What do URDF files do?**
+  It 3D models a robot or its parts, it simulate them or to simply help the developers in their daily work.
