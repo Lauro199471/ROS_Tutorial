@@ -21,3 +21,11 @@ In this chapter we will be talking about URDF Files
 
 ## Links
 Links represents a single link of a robot. Using this, we can model a robot link and its properties. The modeling includes size, shape, color, and can even import a 3D mesh to represent the robot link. We can also provide dynamic properties of the link such as inertial matrix and collision properties.
+XML CODE:
+'''XML
+<link name="<name of the link>">
+<inertial>...........</inertial>
+  <visual> ............</visual>
+  <collision>..........</collision>
+</link>
+'''
