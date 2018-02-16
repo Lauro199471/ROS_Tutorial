@@ -16,6 +16,7 @@ In this chapter we will be talking about URDF Files
 **What do URDF files do?** It 3D models a robot or its parts, it simulate them or to simply help the developers in their daily work.
 
 **How do I create a URDF file?** In a URDF File we must write the relationship between each **link** and **joint** in the robot and save the file with the *.urdf* extension
+![images](https://user-images.githubusercontent.com/13907836/36333370-535776ca-132b-11e8-97e2-452b62057dc9.jpg)
 
 ## Links
 Links represents a single link of a robot. Using this, we can model a robot link and its properties. The modeling includes size, shape, color, and can even import a 3D mesh to represent the robot link. We can also provide dynamic properties of the link such as inertial matrix and collision properties.
