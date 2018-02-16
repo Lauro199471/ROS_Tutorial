@@ -56,3 +56,6 @@ In this example it represented a single link.
  * The **Visual** section represents the real link of the robot. 
  * The **Collision** is the area surrounding the link. ( look at top pic for better understanding )
  * The **Inertial** is to get your model to simulate properly, you need to define several physical properties of your robot, i.e. the properties that a physics engine like Gazebo would need. *we will get back to this one*
+ 
+ ## Joints
+Joints represents a robot joint. We can specify the kinematics and dynamics of the joint and also set the limits of the joint movement and its velocity. The joint tag supports the different types of joints such as **revolute**, **continuous**, **prismatic**, **fixed**, **floating**, and **planar**.
