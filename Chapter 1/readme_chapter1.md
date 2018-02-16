@@ -18,6 +18,9 @@ In this chapter we will be talking about URDF Files
 **How do I create a URDF file?** In a URDF File we must write the relationship between each **link** and **joint** in the robot and save the file with the *.urdf* extension
 
 ![images](https://user-images.githubusercontent.com/13907836/36333370-535776ca-132b-11e8-97e2-452b62057dc9.jpg)
+![link](https://user-images.githubusercontent.com/13907836/36333893-6a448302-132e-11e8-978f-95726200bcc7.png)
+![inertial](https://user-images.githubusercontent.com/13907836/36333896-6ae995e0-132e-11e8-8d3d-605cc050ade2.png)
+![joint](https://user-images.githubusercontent.com/13907836/36333897-6b2a72cc-132e-11e8-8521-eadf98a53eca.png)
 
 ## Links
 Links represents a single link of a robot. Using this, we can model a robot link and its properties. The modeling includes size, shape, color, and can even import a 3D mesh to represent the robot link. We can also provide dynamic properties of the link such as inertial matrix and collision properties.
@@ -34,7 +37,7 @@ XML CODE:
 Example:                                                                     
 ```XML
 <link name="<forearm>">
-<!-- *not needed* <inertial>...........</inertial> *This is a comment btw*-->
+<!-- *not needed for now* <inertial>...........</inertial> *This is a comment btw*-->
   <visual> 
     <geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -44,6 +47,11 @@ Example:
       <color rgba="0 1.0 1.0 1.0"/>
     </material>
   </visual>
-  <!--  *not needed* <collision>..........</collision> -->
+  <!--  *not needed for now* <collision>..........</collision> -->
 </link>
 ```
+
+In this example it represented a single link. 
+ * The **Visual** section represents the real link of the robot. 
+ * The **Collision** is the area surrounding the link. ( look at top pic for better understanding )
+ * The **Inertial** is the 
