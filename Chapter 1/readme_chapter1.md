@@ -16,3 +16,5 @@ In this chapter we will be talking about URDF Files
 **What do URDF files do?** It 3D models a robot or its parts, it simulate them or to simply help the developers in their daily work.
 
 **How do I create a URDF file?** In a URDF File we must write the relationship between each **link** and **joint** in the robot and save the file with the *.urdf* extension
+
+## Links
