@@ -58,7 +58,7 @@ In this example it represented a single link.
  * The **Inertial** is to get your model to simulate properly, you need to define several physical properties of your robot, i.e. the properties that a physics engine like Gazebo would need. *we will get back to this one*
  
  ## Joints
-Joints represents a robot joint. We can specify the kinematics and dynamics of the joint and also set the limits of the joint movement and its velocity. The joint tag supports the different types of joints such as **revolute**, **continuous**, **prismatic**, **fixed**, **floating**, and **planar**.
+Joints represents a robot joint. We can specify the kinematics and dynamics of the joint and also set the limits of the joint movement and its velocity. The joint tag supports the different types of joints such as **revolute**, **continuous**, **prismatic**, **fixed**, **floating**, and **planar**. A URDF joint is formed between two links; the first is called the **Parent link** and the second is the **Child link**.
 
 
 XML CODE:                                                                     
