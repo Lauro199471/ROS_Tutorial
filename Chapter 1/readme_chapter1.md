@@ -6,7 +6,7 @@ In this chapter we will be talking about URDF Files
 
 *here are some simple examples of a URDF file*
 
-![robonaut1](https://user-images.githubusercontent.com/13907836/36332924-18568022-1329-11e8-84b9-ad384f41dc4b.jpg)
+![robonaut2-20-pound-2](https://user-images.githubusercontent.com/13907836/36332994-5c6ac9bc-1329-11e8-94ed-820b81de4f6a.jpg)
 ![rsz_seq_2-1024x429-1024x429](https://user-images.githubusercontent.com/13907836/36332927-18754318-1329-11e8-8f73-fb3eca02aeb8.png)
 
 
