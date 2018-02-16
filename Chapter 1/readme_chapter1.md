@@ -7,7 +7,6 @@ In this chapter we will be talking about URDF Files
 
 ![robonaut2-20-pound-2](https://user-images.githubusercontent.com/13907836/36332994-5c6ac9bc-1329-11e8-94ed-820b81de4f6a.jpg)
 ![rsz_seq_2-1024x429-1024x429](https://user-images.githubusercontent.com/13907836/36332927-18754318-1329-11e8-8f73-fb3eca02aeb8.png)
-
 *NASA Robonaut in a URDF File and in real life*
 
 
