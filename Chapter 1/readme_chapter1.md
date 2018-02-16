@@ -59,3 +59,16 @@ In this example it represented a single link.
  
  ## Joints
 Joints represents a robot joint. We can specify the kinematics and dynamics of the joint and also set the limits of the joint movement and its velocity. The joint tag supports the different types of joints such as **revolute**, **continuous**, **prismatic**, **fixed**, **floating**, and **planar**.
+
+
+XML CODE:                                                                     
+```XML
+<joint name="<name of the joint>">
+  <parent link="link1"/>
+  <child link="link2"/>
+  
+  <calibration .... />
+  <dynamics damping ..../>
+  <limit effort .... />
+</joint>
+```
