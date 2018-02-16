@@ -55,4 +55,4 @@ Example:
 In this example it represented a single link. 
  * The **Visual** section represents the real link of the robot. 
  * The **Collision** is the area surrounding the link. ( look at top pic for better understanding )
- * The **Inertial** is the 
+ * The **Inertial** is to get your model to simulate properly, you need to define several physical properties of your robot, i.e. the properties that a physics engine like Gazebo would need. *we will get back to this one*
