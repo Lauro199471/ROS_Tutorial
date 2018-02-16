@@ -72,3 +72,16 @@ XML CODE:
   <limit effort .... />
 </joint>
 ```
+
+Example:                                                                     
+```XML
+<joint name="<forearm>">
+  <parent link="forearm"/>
+  <child link="gripper"/>
+  <origin xyz="0.5 0.0 0.0" rpy="0 0 -1.57"/>
+  <axis xyz="0 0 1"/>
+  <!-- *not needed* <calibration .... /> -->
+  <!-- *not needed* <dynamics damping ..../> -->
+  <!-- *not needed* <limit effort .... /> -->
+</joint>  
+```
