@@ -218,3 +218,9 @@ root Link: base_link has 4 child(ren)
     child(4):  f_r_wheel
 ```
 
+If we want to view the structure of the robot links and joints graphically, we can use
+a command tool called ```urdf_to_graphiz``` :
+```
+lauro199471@lauro-PC:~/catkin_ws/src/ros_robotics/urdf$ urdf_to_graphiz 4dd_robot.urdf 
+```
+This command will generate two files: 4dd_robot.gv and 4dd_robot.pdf.(*GV file is a document which includes descriptions about graphs and written using the DOT Language. DOT Language is a simple text graph language that is used to interpret abstract representation of objects that is usually joined by links*)
