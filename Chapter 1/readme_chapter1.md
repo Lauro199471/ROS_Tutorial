@@ -101,6 +101,7 @@ Example:
 ```XML
 <?xml version='1.0'?>
 <robot name="labrob">
+  
     <!-- Base link -->
     <link name="base_link">
         <visual>
@@ -113,6 +114,7 @@ Example:
             </material>
         </visual>
     </link>
+  
     <!-- Front Right Wheel -->
     <link name="f_r_wheel">
         <visual>
@@ -131,6 +133,7 @@ Example:
         <origin xyz="0.25 -0.30 0" rpy="0 0 0" />
         <axis xyz="0 1 0" rpy="0 0 0" />
     </joint>
+  
     <!-- Back Right Wheel -->
     <link name="b_r_wheel">
         <visual>
@@ -147,6 +150,7 @@ Example:
         <origin xyz="-0.25 -0.30 0" rpy="0 0 0" />
         <axis xyz="0 1 0" rpy="0 0 0" />
     </joint>
+  
     <!-- Front Left Wheel -->
     <link name="f_l_wheel">
         <visual>
@@ -163,6 +167,7 @@ Example:
         <origin xyz="0.25 0.30 0" rpy="0 0 0" />
         <axis xyz="0 1 0" rpy="0 0 0" />
     </joint>
+  
     <!-- Back Left Wheel -->
     <link name="b_l_wheel">
         <visual>
