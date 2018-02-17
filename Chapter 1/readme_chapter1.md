@@ -189,3 +189,8 @@ Example:
     </joint>
 </robot>
 ```
+The <robot> tag defines the name of the robot that we are going to create. Here, we named the robot *4dd_robot*.
+```XML
+<?xml version='1.0'?>
+<robot name="4dd_robot">
+```
