@@ -1,5 +1,5 @@
 ![ros-800x480](https://user-images.githubusercontent.com/13907836/36337944-83d52db6-1357-11e8-92cc-cc3601a098e4.png)
-![kinetic](https://user-images.githubusercontent.com/13907836/36337945-85544276-1357-11e8-9234-9cb04f751a2b.png)
+
 
 # ROS_Tutorial
 This tutorial is created by Lauro Cabral
@@ -8,3 +8,5 @@ This tutorial is created by Lauro Cabral
 **OS**: Ubuntu 16.04
 
 **ROS**: Kinetic
+
+![kinetic](https://user-images.githubusercontent.com/13907836/36337961-dbe69c9c-1357-11e8-92c4-9b7b5eb5ed37.png)
