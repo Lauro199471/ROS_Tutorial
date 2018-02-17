@@ -202,6 +202,6 @@ within your ROS Package you can add a folder called "URDF" to put all your URDF 
 ![screenshot from 2018-02-16 19-53-12](https://user-images.githubusercontent.com/13907836/36337791-c49eb0c8-1353-11e8-9cf7-a615c954417f.png)
 
 To check if the URDF code has errors then using the following command in the termainal(*must be in the folder of the URDF file*):
-'''
+```
 $ check_urdf 4dd_robot.urdf 
-'''
+```
