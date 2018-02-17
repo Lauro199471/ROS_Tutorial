@@ -85,3 +85,14 @@ Example:
   <!-- *not needed* <limit effort .... /> -->
 </joint>  
 ```
+ ## Robot Tag name
+ robot: This tag encapsulates the entire robot model that can be represented using URDF. Inside the robot tag, we can define the name of the robot, the links, and the joints of the robot.
+ XML CODE:                                                                     
+```XML
+<robot name="<name of the robot>"
+  <link>  ........ </link>
+  <link>  ........ </link>
+  <joint> ........ </joint>
+  <joint> ........ </joint>
+</robot>
+```
