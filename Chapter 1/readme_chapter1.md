@@ -203,5 +203,18 @@ within your ROS Package you can add a folder called "URDF" to put all your URDF 
 
 To check if the URDF code has errors then using the following command in the termainal(*must be in the folder of the URDF file*):
 ```
-$ check_urdf 4dd_robot.urdf 
+lauro199471@lauro-PC:~/catkin_ws/src/ros_robotics/urdf$ check_urdf 4dd_robot.urdf 
 ```
+The ```check_urdf``` command will parse urdf and show an error, if any. If everything
+is OK, it will show an output as follows:
+
+```
+robot name is: 4dd_robot
+---------- Successfully Parsed XML ---------------
+root Link: base_link has 4 child(ren)
+    child(1):  b_l_wheel
+    child(2):  b_r_wheel
+    child(3):  f_l_wheel
+    child(4):  f_r_wheel
+```
+
