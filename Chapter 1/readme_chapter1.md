@@ -100,7 +100,7 @@ Example:
 Example:                                                                     
 ```XML
 <?xml version='1.0'?>
-<robot name="labrob">
+<robot name="4dd_robot">
   
     <!-- Base link -->
     <link name="base_link">
