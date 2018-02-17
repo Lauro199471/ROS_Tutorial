@@ -198,4 +198,5 @@ The ```<robot>``` tag defines the name of the robot that we are going to create.
 within your ROS Package you can add a folder called "URDF" to put all your URDF files so they can be in your ROS workspace.
 
 *Here is a tree view of my workspace.*
+
 ![screenshot from 2018-02-16 19-53-12](https://user-images.githubusercontent.com/13907836/36337791-c49eb0c8-1353-11e8-9cf7-a615c954417f.png)
