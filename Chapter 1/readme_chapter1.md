@@ -225,6 +225,6 @@ lauro199471@lauro-PC:~/catkin_ws/src/ros_robotics/urdf$ urdf_to_graphiz 4dd_robo
 ```
 This command will generate two files: 4dd_robot.gv and 4dd_robot.pdf.(*GV file is a document which includes descriptions about graphs and written using the DOT Language. DOT Language is a simple text graph language that is used to interpret abstract representation of objects that is usually joined by links*)
 
-![screenshot-from-2018-02-16-20-](https://user-images.githubusercontent.com/13907836/36337885-e831eda0-1355-11e8-878d-3835293afcd7.png) *This is what the 4dd_robot.gv and 4dd_robot.pdf look like*
-
+*This is what the 4dd_robot.gv and 4dd_robot.pdf look like*
+![screenshot-from-2018-02-16-20-](https://user-images.githubusercontent.com/13907836/36337885-e831eda0-1355-11e8-878d-3835293afcd7.png) 
 
