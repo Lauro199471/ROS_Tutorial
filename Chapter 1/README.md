@@ -253,5 +253,20 @@ Example:
 ```
 ## Understanding Robot State Publisher 
 The *robot state publisher package* helps to publish the state of the robot to *tf*. This package subscribes to joint states of the robot and publishes the 3D pose of each link using the kinematic representation from the URDF model.
+
+## Launch File for URDF and Simulate in RVIZ 
+Using URDF we create a launch file to simulate the URDF file in RVIZ. Here is an example launch file using the URDF file from above.
+```XML
+<launch>
+  <param name="use_gui" value="$(arg gui)"/>
+  <!-- set these parameters on Parameter Server -->
+  <param name="robot_description" textfile="$(find ros_robotics)/urdf/dd_robotLC.urdf" />
+   <!-- Start 3 nodes: joint_state_publisher, robot_state_publisher and rviz -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" required="true" />
+</launch>
+```
+
 ## URDF with Xacro
 Xacro is a very simple language that allows us to create URDF files using macros that can contain simple instructions and basic math. The main advantage of using xacro is that we can take advantage of the iterative nature of robot links by defining them as macros that get repeated with different parameters throughout the robot. Using this approach saves time, increases readability, and is less error-prone.
