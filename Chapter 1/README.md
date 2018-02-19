@@ -291,6 +291,17 @@ Before simulating a robot in a robot simulator, such as Gazebo, V-REP, and so on
 </link> 
 ```
 Here, we define the collision geometry as cylinder and the mass as 1 Kg, and we also set the inertial matrix of the link. The **collision and inertia parameters** are required in each link; otherwise, Gazebo will not load the robot model properly.
+### 1. Collision Tag
+The collision element defines its shape the same way the visual element does, with a geometry tag. The format for the geometry tag is exactly the same here as with the visual.You can also specify an origin in the same way as a subelement of the collision tag (as with the visual). 
+
+In many cases, you’ll want the collision geometry and origin to be exactly the same as the visual geometry and origin. 
+
+### 2. Physical Properties
+In order to get your model to simulate properly, you need to define several physical properties of your robot, i.e. the properties that a physics engine like Gazebo would need. The 3x3 rotational inertia matrix is specified with the inertia element.
+#### 2.1 Inertia
+Every link element being simulated needs an inertial tag.The mass is defined in kilograms. To calulate moment of interia use this tool:
+**(MAKE TOOL)***
+
 ## Gazebo
 Gazebo is a free and open source robot simulation environment developed by Willow Garage.To run Gazebo requires a powerful graphics card. Roslaunch is a standard method used to start Gazebo with world files and robot URDF models. To perform a basic test of Gazebo, an empty Gazebo world can be brought up with the following command:
 ```
