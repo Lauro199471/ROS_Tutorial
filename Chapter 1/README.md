@@ -290,6 +290,7 @@ Before simulating a robot in a robot simulator, such as Gazebo, V-REP, and so on
 ........... 
 </link> 
 ```
+Here, we define the collision geometry as cylinder and the mass as 1 Kg, and we also set the inertial matrix of the link. The **collision and inertia parameters** are required in each link; otherwise, Gazebo will not load the robot model properly.
 ## Gazebo
 Gazebo is a free and open source robot simulation environment developed by Willow Garage.To run Gazebo requires a powerful graphics card. Roslaunch is a standard method used to start Gazebo with world files and robot URDF models. To perform a basic test of Gazebo, an empty Gazebo world can be brought up with the following command:
 ```
@@ -314,7 +315,6 @@ Example:
 <gazebo reference="left_wheel">
     <material>Gazebo/Black</material>
 </gazebo>
-```
-Here, we define the collision geometry as cylinder and the mass as 1 Kg, and we also set the inertial matrix of the link. The **collision and inertia parameters** are required in each link; otherwise, Gazebo will not load the robot model properly. 
+``` 
 ## URDF with Xacro
 Xacro is a very simple language that allows us to create URDF files using macros that can contain simple instructions and basic math. The main advantage of using xacro is that we can take advantage of the iterative nature of robot links by defining them as macros that get repeated with different parameters throughout the robot. Using this approach saves time, increases readability, and is less error-prone.
