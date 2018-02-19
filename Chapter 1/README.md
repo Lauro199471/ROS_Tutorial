@@ -230,7 +230,7 @@ This command will generate two files: 4dd_robot.gv and 4dd_robot.pdf.(*GV file i
 
 
 ## How to simulate URDF on RVIZ
-To simulate URDF on RVIZ we must first understand what a *joint state publisher node* and a *Robot State node*.
+To simulate URDF on RVIZ we must first understand what a *joint state publisher node* and a *Robot State node*.Rviz, abbreviation for ROS visualization, is a powerful 3D visualization tool for ROS. It allows the user to view the robot model, display and/or log sensor information from the robot's sensors, and replay the logged sensor information. By visualizing what the robot is seeing, thinking, and doing, the user can debug a robot application from sensor inputs to planned (or unplanned) actions. 
 
 ## Understanding Joint State Publisher
 Joint state publisher is one of the ROS packages that is commonly used to interact with each joint of the robot. The package contains the joint_state_publisher node, which will find the nonfixed joints from the URDF model and publish the joint state values of each joint in the **sensor_msgs/JointState** message format. To display a slider based control window to control each joint we will have to set *use_gui* to true.
@@ -271,6 +271,10 @@ This is how it should look in RVIZ with a joint_state_publisher scroll bar to mo
 
 ![screenshot from 2018-02-19 10-57-00](https://user-images.githubusercontent.com/13907836/36393413-4d7a39e6-1564-11e8-8d48-87472acd2dd3.png)
 
-
+## Gazebo
+Gazebo is a free and open source robot simulation environment developed by Willow Garage.To run Gazebo requires a powerful graphics card. Roslaunch is a standard method used to start Gazebo with world files and robot URDF models. To perform a basic test of Gazebo, an empty Gazebo world can be brought up with the following command:
+```
+$ roslaunch gazebo_ros empty_world.launch 
+```
 ## URDF with Xacro
 Xacro is a very simple language that allows us to create URDF files using macros that can contain simple instructions and basic math. The main advantage of using xacro is that we can take advantage of the iterative nature of robot links by defining them as macros that get repeated with different parameters throughout the robot. Using this approach saves time, increases readability, and is less error-prone.
