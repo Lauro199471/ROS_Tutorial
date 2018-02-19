@@ -234,7 +234,7 @@ To simulate URDF on RVIZ we must first understand what a *joint state publisher 
 
 ## Understanding Joint State Publisher
 Joint state publisher is one of the ROS packages that is commonly used to interact with each joint of the robot. The package contains the joint_state_publisher node, which will find the nonfixed joints from the URDF model and publish the joint state values of each joint in the **sensor_msgs/JointState** message format. To display a slider based control window to control each joint we will have to set *use_gui* to true.
-```  
+```XML
 <!-- This is in the launch file -->
 <param name="use_gui" value="true"/>
 ```
