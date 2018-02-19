@@ -276,5 +276,9 @@ Gazebo is a free and open source robot simulation environment developed by Willo
 ```
 $ roslaunch gazebo_ros empty_world.launch 
 ```
+## Modifications to the robot URDF 
+Gazebo expects the robot model file to be in SDF format. SDF is similar to the URDF, using some of the same XML descriptive tags. With the following modifications, Gazebo will automatically convert the URDF code into an SDF robot description. The following sections will describe the steps to be taken.
+### Adding the Gazebo tag
+The ```<gazebo>``` tag must be added to the URDF to specify additional elements needed for simulation in Gazebo.
 ## URDF with Xacro
 Xacro is a very simple language that allows us to create URDF files using macros that can contain simple instructions and basic math. The main advantage of using xacro is that we can take advantage of the iterative nature of robot links by defining them as macros that get repeated with different parameters throughout the robot. Using this approach saves time, increases readability, and is less error-prone.
