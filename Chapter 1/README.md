@@ -279,6 +279,21 @@ $ roslaunch gazebo_ros empty_world.launch
 ## Modifications to the robot URDF 
 Gazebo expects the robot model file to be in SDF format. SDF is similar to the URDF, using some of the same XML descriptive tags. With the following modifications, Gazebo will automatically convert the URDF code into an SDF robot description. The following sections will describe the steps to be taken.
 ### Adding the Gazebo tag
-The ```<gazebo>``` tag must be added to the URDF to specify additional elements needed for simulation in Gazebo.
+The ```<gazebo>``` tag must be added to the URDF to specify additional elements needed for simulation in Gazebo. This tag allows for identifying elements found in the SDF format that are not found in the URDF format. If a ```<gazebo>``` tag is used without a reference="" property, it is assumed that the <gazebo> elements refer to the whole robot model. The reference parameter usually refers to a specific robot link. 
+
+### Specifying color in Gazebo 
+The method of specifying link colors in rviz does not work in Gazebo since Gazebo has adopted OGRE's material scripts for coloring and texturing links. Therefore, a Gazebo ```<material>``` tag must be specified for each link. These tags can be placed in the model file just before the ending ```</robot>``` tag:
+```XML
+<gazebo reference="base_link">
+    <material>Gazebo/Blue</material>
+</gazebo>
+<gazebo reference="right_wheel">
+    <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="left_wheel">
+    <material>Gazebo/Black</material>
+</gazebo>
+```
+
 ## URDF with Xacro
 Xacro is a very simple language that allows us to create URDF files using macros that can contain simple instructions and basic math. The main advantage of using xacro is that we can take advantage of the iterative nature of robot links by defining them as macros that get repeated with different parameters throughout the robot. Using this approach saves time, increases readability, and is less error-prone.
