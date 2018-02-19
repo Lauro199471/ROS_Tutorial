@@ -251,5 +251,7 @@ Example:
     <limit effort="100.0" velocity="0.5" lower="-3.14" upper="3.14" />
 </joint>
 ```
+## Understanding Robot State Publisher 
+The *robot state publisher package* helps to publish the state of the robot to *tf*. This package subscribes to joint states of the robot and publishes the 3D pose of each link using the kinematic representation from the URDF model.
 ## URDF with Xacro
 Xacro is a very simple language that allows us to create URDF files using macros that can contain simple instructions and basic math. The main advantage of using xacro is that we can take advantage of the iterative nature of robot links by defining them as macros that get repeated with different parameters throughout the robot. Using this approach saves time, increases readability, and is less error-prone.
