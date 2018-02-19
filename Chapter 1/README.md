@@ -258,7 +258,7 @@ The *robot state publisher package* helps to publish the state of the robot to *
 Using URDF we create a launch file to simulate the URDF file in RVIZ. Here is an example launch file using the URDF file from above.
 ```XML
 <launch>
-  <param name="use_gui" value="$(arg gui)"/>
+  <param name="use_gui" value="true"/>
   <!-- set these parameters on Parameter Server -->
   <param name="robot_description" textfile="$(find ros_robotics)/urdf/4dd_robot.urdf" />
    <!-- Start 3 nodes: joint_state_publisher, robot_state_publisher and rviz -->
