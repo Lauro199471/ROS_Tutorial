@@ -237,6 +237,17 @@ Joint state publisher is one of the ROS packages that is commonly used to intera
 ```  
 <param name="use_gui" value="true"/>
 ```
-The lower and upper value of a joint will be taken from the lower and upper values associated with the limit tag used inside the joint tag.
+The lower and upper value of a joint will be taken from the lower and upper values associated with the *limit tag* used inside the *joint tag.*
+```XML
+<!-- Joint between Base Link and Middle Link -->
+  <joint name="joint_base_mid" type="revolute">
+    <parent link="base_link"/>
+    <child link="mid_link"/>
+    <origin xyz="0 ${width} ${height1 - axle_offset}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="${damp}"/>
+    <limit effort="100.0" velocity="0.5" lower="-3.14" upper="3.14" />
+</joint>
+```
 ## URDF with Xacro
 Xacro is a very simple language that allows us to create URDF files using macros that can contain simple instructions and basic math. The main advantage of using xacro is that we can take advantage of the iterative nature of robot links by defining them as macros that get repeated with different parameters throughout the robot. Using this approach saves time, increases readability, and is less error-prone.
