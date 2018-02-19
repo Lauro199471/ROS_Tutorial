@@ -271,6 +271,25 @@ This is how it should look in RVIZ with a joint_state_publisher scroll bar to mo
 
 ![screenshot from 2018-02-19 10-57-00](https://user-images.githubusercontent.com/13907836/36393413-4d7a39e6-1564-11e8-8d48-87472acd2dd3.png)
 
+## Adding physical and collision properties to a URDF model 
+Before simulating a robot in a robot simulator, such as Gazebo, V-REP, and so on, we need to define the robot link's physical properties such as geometry, color, mass, and inertia, and the collision properties of the link.We will only get good simulation results if we define all these properties inside the robot model. URDF provides tags to include all these parameters and code snippets of base_link contained in theses properties as given here:
+```XML
+<link> 
+......    
+  <collision>      
+      <geometry>      
+          <cylinder length="0.03" radius="0.2"/>      
+      </geometry>      
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+  </collision>
+    
+  <inertial>    
+      <mass value="1"/>    
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>     
+  </inertial> 
+........... 
+</link> 
+```
 ## Gazebo
 Gazebo is a free and open source robot simulation environment developed by Willow Garage.To run Gazebo requires a powerful graphics card. Roslaunch is a standard method used to start Gazebo with world files and robot URDF models. To perform a basic test of Gazebo, an empty Gazebo world can be brought up with the following command:
 ```
