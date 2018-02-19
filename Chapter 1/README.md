@@ -283,6 +283,7 @@ The ```<gazebo>``` tag must be added to the URDF to specify additional elements 
 
 ### Specifying color in Gazebo 
 The method of specifying link colors in rviz does not work in Gazebo since Gazebo has adopted OGRE's material scripts for coloring and texturing links. Therefore, a Gazebo ```<material>``` tag must be specified for each link. These tags can be placed in the model file just before the ending ```</robot>``` tag:
+Example:
 ```XML
 <gazebo reference="base_link">
     <material>Gazebo/Blue</material>
