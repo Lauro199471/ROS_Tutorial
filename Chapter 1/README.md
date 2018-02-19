@@ -260,7 +260,7 @@ Using URDF we create a launch file to simulate the URDF file in RVIZ. Here is an
 <launch>
   <param name="use_gui" value="$(arg gui)"/>
   <!-- set these parameters on Parameter Server -->
-  <param name="robot_description" textfile="$(find ros_robotics)/urdf/dd_robotLC.urdf" />
+  <param name="robot_description" textfile="$(find ros_robotics)/urdf/4dd_robot.urdf" />
    <!-- Start 3 nodes: joint_state_publisher, robot_state_publisher and rviz -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
