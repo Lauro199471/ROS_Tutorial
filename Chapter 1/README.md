@@ -315,6 +315,6 @@ Example:
     <material>Gazebo/Black</material>
 </gazebo>
 ```
-
+Here, we define the collision geometry as cylinder and the mass as 1 Kg, and we also set the inertial matrix of the link. The **collision and inertia parameters** are required in each link; otherwise, Gazebo will not load the robot model properly. 
 ## URDF with Xacro
 Xacro is a very simple language that allows us to create URDF files using macros that can contain simple instructions and basic math. The main advantage of using xacro is that we can take advantage of the iterative nature of robot links by defining them as macros that get repeated with different parameters throughout the robot. Using this approach saves time, increases readability, and is less error-prone.
