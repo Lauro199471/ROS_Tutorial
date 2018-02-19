@@ -267,6 +267,8 @@ Using URDF we create a launch file to simulate the URDF file in RVIZ. Here is an
   <node name="rviz" pkg="rviz" type="rviz" required="true" />
 </launch>
 ```
+This is how it should look in RVIZ with a joint_state_publisher scroll bar to move the joints. In this case the joints are the wheels.
+![screenshot from 2018-02-19 10-57-00](https://user-images.githubusercontent.com/13907836/36393350-fe4a2bd8-1563-11e8-86d3-3a4a70c79ecb.png)
 
 ## URDF with Xacro
 Xacro is a very simple language that allows us to create URDF files using macros that can contain simple instructions and basic math. The main advantage of using xacro is that we can take advantage of the iterative nature of robot links by defining them as macros that get repeated with different parameters throughout the robot. Using this approach saves time, increases readability, and is less error-prone.
