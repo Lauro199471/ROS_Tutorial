@@ -228,3 +228,15 @@ This command will generate two files: 4dd_robot.gv and 4dd_robot.pdf.(*GV file i
 *This is what the 4dd_robot.gv and 4dd_robot.pdf look like*
 ![screenshot-from-2018-02-16-20-](https://user-images.githubusercontent.com/13907836/36337885-e831eda0-1355-11e8-878d-3835293afcd7.png) 
 
+
+## How to simulate URDF on RVIZ
+To simulate URDF on RVIZ we must first understand what a *joint state publisher node* and a *Robot State node*.
+
+## Understanding Joint State Publisher
+Joint state publisher is one of the ROS packages that is commonly used to interact with each joint of the robot. The package contains the joint_state_publisher node, which will find the nonfixed joints from the URDF model and publish the joint state values of each joint in the **sensor_msgs/JointState** message format. To display a slider based control window to control each joint we will have to set *use_gui* to true.
+```  
+<param name="use_gui" value="true"/>
+```
+The lower and upper value of a joint will be taken from the lower and upper values associated with the limit tag used inside the joint tag.
+## URDF with Xacro
+Xacro is a very simple language that allows us to create URDF files using macros that can contain simple instructions and basic math. The main advantage of using xacro is that we can take advantage of the iterative nature of robot links by defining them as macros that get repeated with different parameters throughout the robot. Using this approach saves time, increases readability, and is less error-prone.
