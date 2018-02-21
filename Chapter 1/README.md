@@ -342,3 +342,8 @@ Ex of using ```<property>``` for constants:
  <xacro:property name="height2" value="1" />  
  <xacro:property name="radius" value="0.04" /> 
 ```
+To use these 'names' we put ```${(name of property name)}``` which is evaluated as the value of the ``` name of protery name```.
+Ex:
+```XML
+ <xacro:property name="width" value="0.1" />  <!-- ${width} = 0.1 -->
+```
