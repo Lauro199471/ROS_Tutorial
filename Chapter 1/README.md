@@ -29,7 +29,7 @@ Links represents a single link of a robot. Using this, we can model a robot link
 XML CODE:                                                                     
 ```XML
 <link name="<name of the link>">
-<inertial>...........</inertial>
+  <inertial>...........</inertial>
   <visual> ............</visual>
   <collision>..........</collision>
 </link>
