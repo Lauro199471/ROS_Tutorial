@@ -362,4 +362,4 @@ Ex:
   </inertial> 
 </xacro:macro> 
 ```
-Here, the macro is named ``inertial_matrix```, and its parameter is mass. The mass parameter can be used inside the inertial definition using ```${mass}```.
+Here, the macro is named ```inertial_matrix```, and its parameter is mass. The mass parameter can be used inside the inertial definition using ```${mass}```.
