@@ -352,5 +352,13 @@ In order to create the URDF file from Xacro files, the Xacro file must contain a
  <!-- This declaration is vital for the file to parse properly. -->
  <robot name="4dd_robot" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
 ```
-
-
+ The main feature of Xacro is **Marcos**. When creating a macro, a simple ```<xacro>``` tag can expand into a statement or sequence of statements in the URDF/SDF file. Macros are extremely useful when statements are repeated or reused with modifications defined by parameters. 
+Ex:
+```XML
+ <xacro:macro name="inertial_matrix" params="mass">  
+  <inertial>       
+    <mass value="${mass}" />          
+      <inertia ixx="0.5" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="0.5" />   
+  </inertial> 
+</xacro:macro> 
+```
