@@ -336,8 +336,9 @@ Xacro is a very simple language that allows us to create URDF files using macros
   * 
 Ex of using ```<property>``` for constants:
 ```XML
- <xacro:property name="base_link_length" value="0.01" />  
- <xacro:property name="base_link_radius" value="0.2" />
- <xacro:property name="pan_link_length" value="0.4" />  
- <xacro:property name="pan_link_radius" value="0.04" /> 
+ <!-- Constants for robot dimensions(values are in meters fyi) -->
+ <xacro:property name="width" value="0.1" />  
+ <xacro:property name="height1" value="2" />
+ <xacro:property name="height2" value="1" />  
+ <xacro:property name="radius" value="0.04" /> 
 ```
