@@ -347,3 +347,9 @@ Ex:
 ```XML
  <xacro:property name="width" value="0.1" />  <!-- ${width} = 0.1 -->
 ```
+In order to create the URDF file from Xacro files, the Xacro file must contain an XML namespace declaration using the ```xmlns``` attribute with the xacro tag and corresponding URI. Here is the XML namespace (xmlns) attribute for our 4dd_robot:
+```XML
+ <robot name="4dd_robot" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+```
+
+
