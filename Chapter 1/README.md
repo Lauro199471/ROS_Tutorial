@@ -366,3 +366,5 @@ Here, the macro is named ```inertial_matrix```, and its parameter is mass. The m
 
 ## 7 DOF Arm using Xarco
 ![capture](https://user-images.githubusercontent.com/13907836/36492546-3df7322e-16e2-11e8-8d25-c4120dab8229.PNG)
+Let's start creating the seven DOF arm; the final output model of the robot arm is shown above.
+![7dof](https://user-images.githubusercontent.com/13907836/36493898-7b62f80c-16e5-11e8-82c1-67637b277694.PNG)
