@@ -349,6 +349,7 @@ Ex:
 ```
 In order to create the URDF file from Xacro files, the Xacro file must contain an XML namespace declaration using the ```xmlns``` attribute with the xacro tag and corresponding URI. Here is the XML namespace (xmlns) attribute for our 4dd_robot:
 ```XML
+ <!-- This declaration is vital for the file to parse properly. -->
  <robot name="4dd_robot" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
 ```
 
