@@ -363,3 +363,6 @@ Ex:
 </xacro:macro> 
 ```
 Here, the macro is named ```inertial_matrix```, and its parameter is mass. The mass parameter can be used inside the inertial definition using ```${mass}```.
+
+## 7 DOF Arm using Xarco
+![capture](https://user-images.githubusercontent.com/13907836/36492546-3df7322e-16e2-11e8-8d25-c4120dab8229.PNG)
