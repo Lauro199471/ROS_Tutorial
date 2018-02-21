@@ -328,4 +328,16 @@ Example:
 </gazebo>
 ``` 
 ## URDF with Xacro
-Xacro is a very simple language that allows us to create URDF files using macros that can contain simple instructions and basic math. The main advantage of using xacro is that we can take advantage of the iterative nature of robot links by defining them as macros that get repeated with different parameters throughout the robot. Using this approach saves time, increases readability, and is less error-prone.
+Xacro is a very simple language that allows us to create URDF files using macros that can contain simple instructions and basic math. The main advantage of using xacro is that we can take advantage of the iterative nature of robot links by defining them as macros that get repeated with different parameters throughout the robot. Using this approach saves time, increases readability, and is less error-prone.Using xacro, we can declare constants or properties that are the named values inside the xacro file, which can be used anywhere in the code. The main use of these constant definitions are, instead of giving hard coded values on links and joints, we can keep constants like this and it will be easier to change these values rather than finding the hard coded values and replacing them. The differences for the Xacro format are listed here and explained in more detail after the code is presented: 
+  * Addition of the XML namespace declaration on the second line 
+  * Use of the Xacro ```<property>``` tag to define constant values 
+  * Addition of property names instead of values within the ```<box>`` and ``<origin>``` tags 
+  * Simple math (along with property names) to calculate link ```<origin>``` z values
+  * 
+Ex of using ```<property>``` for constants:
+```XML
+ <xacro:property name="base_link_length" value="0.01" />  
+ <xacro:property name="base_link_radius" value="0.2" />
+ <xacro:property name="pan_link_length" value="0.4" />  
+ <xacro:property name="pan_link_radius" value="0.04" /> 
+```
