@@ -354,6 +354,7 @@ In order to create the URDF file from Xacro files, the Xacro file must contain a
 ```
  The main feature of Xacro is **Marcos**. When creating a macro, a simple ```<xacro>``` tag can expand into a statement or sequence of statements in the URDF/SDF file. Macros are extremely useful when statements are repeated or reused with modifications defined by parameters. 
 Ex:
+``` XML
 <?xml version="1.0"?>
 <!--
                 +
