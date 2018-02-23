@@ -586,6 +586,9 @@ Ex:
 <!--///////////////////////////// END OF ROBOT ///////////////////////////////////////// -->
 </robot>
 ```
+### Pose Tag
+  The ```<pose>``` tage will move the geomety objects away from the origin by the specified 6D ( x y z roll pitch yaw) transform.
+  
 ## 7 DOF Arm using Xarco
 ![capture](https://user-images.githubusercontent.com/13907836/36492546-3df7322e-16e2-11e8-8d25-c4120dab8229.PNG)
 Let's start creating the seven DOF arm; the final output model of the robot arm is shown above.
