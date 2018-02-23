@@ -355,18 +355,31 @@ In order to create the URDF file from Xacro files, the Xacro file must contain a
  The main feature of Xacro is **Marcos**. When creating a macro, a simple ```<xacro>``` tag can expand into a statement or sequence of statements in the URDF/SDF file. Macros are extremely useful when statements are repeated or reused with modifications defined by parameters. 
 Ex:
 ```XML
+<!--
+                +
+                ^
+                |
+         - < -  + - > +
+                |
+                v
+                -
+-->
+
 <?xml version="1.0"?>
 <!-- THIS IS NECESSARY -->
 <robot name="4dd_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <!--//////////////////////////////////////////////////////////////////////////// -->
+    
+    <!--/////////////////////////////// Colors for robot :3 //////////////////////////////////// -->
     <!-- Defining the colors used in this robot -->
     <material name="Yellow">
         <color rgba="0.8 0.8 0 1" />
     </material>
+
     <material name="Black">
         <color rgba="0.05 0.05 0.05 1" />
     </material>
-    <!--//////////////////////////////////////////////////////////////////////////// -->
+
+    <!--//////////////////////////// Moment of Interia Functions ////////////////////////////////// -->
     <!-- Macro for calculating inertia of cylinder -->
     <macro name="cylinder_inertia" params="m r h">
         <inertia ixx="${m*(3*r*r+h*h)/12}" ixy="0" ixz="0" iyx="0" iyy="${m*(3*r*r+h*h)/12}" iyz="0" izx="0" izy="0" izz="${m*r*r/2}" />
@@ -375,69 +388,171 @@ Ex:
     <macro name="cube_inertia" params="w h d m">
         <inertia ixx="${m*(d*d+h*h)/12}" ixy="0" ixz="0" iyx="0" iyy="${m*(w*w+d*d)/12}" iyz="0" izx="0" izy="0" izz="${m*(w*w+h*h)/12}" />
     </macro>
-    <!--//////////////////////////////////////////////////////////////////////////// -->
-    <!-- BASE LINK -->
-    <property name="base_mass" value="5" />
-    <!-- in kg-->
-    <property name="base_depth" value="1" />
-    <!-- in m-->
-    <property name="base_height" value="0.25" />
-    <!-- in m-->
-    <property name="base_width" value="0.5" />
-    <!-- in m-->
+
+    <!--////////////////////////////////// BASE LINK //////////////////////////////// -->
+    <!-- Constants -->
+    <property name="base_mass" value="5" /><!-- in kg-->
+    <property name="base_depth" value="1" /><!-- in m-->
+    <property name="base_height" value="0.25" /><!-- in m-->
+    <property name="base_width" value="0.5" /><!-- in m-->
+    
     <!--Actual body/chassis of the robot-->
     <link name="base_link">
-        <!-- 1) Add Interia for Base -->
+        <!-- 1) Add Interia for BASE -->
         <inertial>
             <mass value="${base_mass}" />
             <origin xyz="0 0 0" />
             <cube_inertia m="${base_mass}" d="${base_depth}" h="${base_height}" w="${base_width}" />
         </inertial>
-        <!-- 2) Add Visual for Base -->
+        <!-- 2) Add Visual for BASE -->
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <box size="${base_depth} ${base_width} ${base_height}" />
                 <!--length(depth) x width x height -->
+                <box size="${base_depth} ${base_width} ${base_height}" />
             </geometry>
             <material name="Yellow" />
         </visual>
-        <!-- 3) Add Collision for Base -->
+        <!-- 3) Add Collision for BASE -->
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0 " />
             <geometry>
-                <box size="${base_depth} ${base_width} ${base_height} " />
                 <!--length(depth) x width x height -->
+                <box size="${base_depth} ${base_width} ${base_height} " />
             </geometry>
         </collision>
     </link>
-    <!-- FRONT RIGHT WHEEL  -->
-    <!--Actual body/chassis of the robot-->
+
+    <!--///////////////////////////// FRONT RIGHT WHEEL ///////////////////////////////////////// -->
+    <!-- Constants -->
+    <property name="wheel_mass" value="2.5" /><!-- in kg-->
+    <property name="wheel_radius" value="0.2" /><!-- in m-->
+    <property name="wheel_height" value="0.1" /><!-- in m-->
+    <property name="ninety_degrees" value="1.5708" /><!-- in radians -->
+    
+    <!--Actual front right wheel of the robot-->
     <link name="f_r_wheel">
-        <!-- 1) Add Interia for Base -->
+        <!-- 1) Add Interia for FRONT RIGHT WHEEL -->
         <inertial>
-            <mass value="${base_mass}" />
+            <mass value="${wheel_mass}" />
             <origin xyz="0 0 0" />
-            <cube_inertia m="${base_mass}" d="${base_depth}" h="${base_height}" w="${base_width}" />
+            <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
         </inertial>
-        <!-- 2) Add Visual for Base -->
+        <!-- 2) Add Visual for FRONT RIGHT WHEEL -->
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0" /><!-- 90 because we want the wheel up not flat down -->
             <geometry>
-                <box size="${base_depth} ${base_width} ${base_height}" />
-                <!--length(depth) x width x height -->
+                <cylinder length="${wheel_height}" radius="${wheel_radius}" />
             </geometry>
-            <material name="Yellow" />
+            <material name="Black" />
         </visual>
-        <!-- 3) Add Collision for Base -->
+        <!-- 3) Add Collision for FRONT RIGHT WHEEL -->
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0 " />
+            <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0 " />
             <geometry>
-                <box size="${base_depth} ${base_width} ${base_height} " />
-                <!--length(depth) x width x height -->
+                <cylinder length="${wheel_height}" radius="${wheel_radius}" />               
             </geometry>
         </collision>
     </link>
+
+    <!--///////////////////////////// BACK RIGHT WHEEL ///////////////////////////////////////// -->
+    <!--Actual front right wheel of the robot-->
+    <link name="b_r_wheel">
+        <!-- 1) Add Interia for BACK RIGHT WHEEL -->
+        <inertial>
+            <mass value="${wheel_mass}" />
+            <origin xyz="0 0 0" />
+            <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
+        </inertial>
+        <!-- 2) Add Visual for BACK RIGHT WHEEL -->
+        <visual>
+            <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0" /><!-- 90 because we want the wheel up not flat down -->
+            <geometry>
+                <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+            </geometry>
+            <material name="Black" />
+        </visual>
+        <!-- 3) Add Collision for FRONT RIGHT WHEEL -->
+        <collision>
+            <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0 " />
+            <geometry>
+                <cylinder length="${wheel_height}" radius="${wheel_radius}" />               
+            </geometry>
+        </collision>
+    </link>
+
+    <!--///////////////////////////// FRONT LEFT WHEEL ///////////////////////////////////////// -->
+    <!--Actual front left wheel of the robot-->
+    <link name="f_l_wheel">
+        <!-- 1) Add Interia for FRONT LEFT WHEEL -->
+        <inertial>
+            <mass value="${wheel_mass}" />
+            <origin xyz="0 0 0" />
+            <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
+        </inertial>
+        <!-- 2) Add Visual for FRONT LEFT WHEEL -->
+        <visual>
+            <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0" /><!-- 90 because we want the wheel up not flat down -->
+            <geometry>
+                <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+            </geometry>
+            <material name="Black" />
+        </visual>
+        <!-- 3) Add Collision for FRONT LEFT WHEEL -->
+        <collision>
+            <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0 " />
+            <geometry>
+                <cylinder length="${wheel_height}" radius="${wheel_radius}" />               
+            </geometry>
+        </collision>
+    </link>
+
+    <!--///////////////////////////// BACK LEFT WHEEL ///////////////////////////////////////// -->
+    <!--Actual back left wheel of the robot-->
+    <link name="b_l_wheel">
+        <!-- 1) Add Interia for BACK LEFT WHEEL -->
+        <inertial>
+            <mass value="${wheel_mass}" />
+            <origin xyz="0 0 0" />
+            <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
+        </inertial>
+        <!-- 2) Add Visual for BACK LEFT WHEEL -->
+        <visual>
+            <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0" /><!-- 90 because we want the wheel up not flat down -->
+            <geometry>
+                <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+            </geometry>
+            <material name="Black" />
+        </visual>
+        <!-- 3) Add Collision for BACK LEFT WHEEL -->
+        <collision>
+            <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0 " />
+            <geometry>
+                <cylinder length="${wheel_height}" radius="${wheel_radius}" />               
+            </geometry>
+        </collision>
+    </link>
+    <!--///////////////////////////// JOINTS ///////////////////////////////////////// -->
+    <!-- Constants -->
+    <property name="wheel_x_offset" value="0.25" /><!-- in m -->
+    <property name="wheel_y_offset" value="0.30" /><!-- in m -->
+    <property name="wheel_z_offset" value="0.00" /><!-- in m -->
+    <property name="wheel_r_offset" value="0.00" /><!-- roll:  in m -->
+    <property name="wheel_p_offset" value="0.00" /><!-- pitch: in m -->
+    <property name="wheel_ya_offset" value="0.00" /><!-- yaw:   in m -->
+    
+    <!--Front right wheel <-> Base -->
+    <joint name="joint_f_r_wheel" type="continuous">
+        <parent link="base_link" />
+        <child link="f_r_wheel" />
+        <origin xyz="${wheel_x_offset} ${-1*wheel_y_offset} ${wheel_z_offset}" 
+                rpy="${wheel_r_offset} ${wheel_p_offset} ${wheel_ya_offset}" />
+        <!-- Axis of revoltuion. Right hand rule says Y will be rotating  -->
+        <axis xyz="0 1 0" rpy="0 0 0" />
+    </joint>
+    
+    
+<!--///////////////////////////// END OF ROBOT ///////////////////////////////////////// -->
 </robot>
 ```
 ## 7 DOF Arm using Xarco
