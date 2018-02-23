@@ -424,7 +424,7 @@ Ex:
             </geometry>
         </collision>
     </link>
-
+    
     <!-- Front Right Wheel -->
     <!-- Constants -->
     <property name="wheel_mass" value="2.5" /><!-- in kg-->
@@ -583,6 +583,29 @@ Ex:
         <!-- Axis of revoltuion. Right hand rule says Y will be rotating  -->
         <axis xyz="0 1 0" rpy="0 0 0" />
     </joint>   
+
+    <!--/////////////////////////// GAZEBO /////////////////////////////////////// -->
+    <!-- Gazebo: Base_link -->
+    <gazebo reference="Base">
+        <material>Gazebo/Yellow</material>
+        <pose>0 0 0 0 0 0</pose>
+    </gazebo>
+    <!-- Gazebo: Front Right_wheel -->
+    <gazebo reference="Front_Right_Wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <!-- Gazebo: Back Right_wheel -->
+    <gazebo reference="Back_Right_Wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <!-- Gazebo: front_left_wheel -->
+    <gazebo reference="front_left_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>   
+    <!-- Gazebo: back_left_wheel -->
+    <gazebo reference="back_left_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
 <!--///////////////////////////// END OF ROBOT ///////////////////////////////////////// -->
 </robot>
 ```
