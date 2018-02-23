@@ -614,4 +614,5 @@ Ex:
   
 ## Xacro to URDF
   To convert the .xacro file to .urdf file we have to be in the same directory as the .xacro file and run this command:
-  ``` rosrun xacro xacro.py model.xacro > model.urdf```
+  
+  ``` $rosrun xacro xacro.py model.xacro > model.urdf```
