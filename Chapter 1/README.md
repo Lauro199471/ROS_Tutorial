@@ -354,7 +354,7 @@ In order to create the URDF file from Xacro files, the Xacro file must contain a
 ```
  The main feature of Xacro is **Marcos**. When creating a macro, a simple ```<xacro>``` tag can expand into a statement or sequence of statements in the URDF/SDF file. Macros are extremely useful when statements are repeated or reused with modifications defined by parameters. 
 Ex:
-```XML
+<?xml version="1.0"?>
 <!--
                 +
                 ^
@@ -364,8 +364,6 @@ Ex:
                 v
                 -
 -->
-
-<?xml version="1.0"?>
 <!-- THIS IS NECESSARY -->
 <robot name="4dd_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
     
@@ -588,7 +586,7 @@ Ex:
     <!-- Gazebo: Base_link -->
     <gazebo reference="Base">
         <material>Gazebo/Yellow</material>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 3 0 0 0 0</pose>
     </gazebo>
     <!-- Gazebo: Front Right_wheel -->
     <gazebo reference="Front_Right_Wheel">
@@ -609,10 +607,10 @@ Ex:
 <!--///////////////////////////// END OF ROBOT ///////////////////////////////////////// -->
 </robot>
 ```
+
 ### Pose Tag
   The ```<pose>``` tage will move the geomety objects away from the origin by the specified 6D ( x y z roll pitch yaw) transform.
   
-## 7 DOF Arm using Xarco
-![capture](https://user-images.githubusercontent.com/13907836/36492546-3df7322e-16e2-11e8-8d25-c4120dab8229.PNG)
-Let's start creating the seven DOF arm; the final output model of the robot arm is shown above.
-![7dof](https://user-images.githubusercontent.com/13907836/36493898-7b62f80c-16e5-11e8-82c1-67637b277694.PNG)
+## Xacro to URDF
+  To convert the .xacro file to .urdf file we have to be in the same directory as the .xacro file and run this command:
+  ``` rosrun xacro xacro.py model.xacro > model.urdf```
