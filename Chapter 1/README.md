@@ -389,22 +389,24 @@ Ex:
         <inertia ixx="${m*(d*d+h*h)/12}" ixy="0" ixz="0" iyx="0" iyy="${m*(w*w+d*d)/12}" iyz="0" izx="0" izy="0" izz="${m*(w*w+h*h)/12}" />
     </macro>
 
-    <!--////////////////////////////////// BASE LINK //////////////////////////////// -->
+    <!--////////////////////////////////// LINKS //////////////////////////////// -->
+    
+    <!-- Base -->
     <!-- Constants -->
     <property name="base_mass" value="5" /><!-- in kg-->
     <property name="base_depth" value="1" /><!-- in m-->
     <property name="base_height" value="0.25" /><!-- in m-->
     <property name="base_width" value="0.5" /><!-- in m-->
     
-    <!--Actual body/chassis of the robot-->
+    <!-- Actual body/chassis of the robot -->
     <link name="base_link">
-        <!-- 1) Add Interia for BASE -->
+        <!-- 1) Add Interia for Base -->
         <inertial>
             <mass value="${base_mass}" />
             <origin xyz="0 0 0" />
             <cube_inertia m="${base_mass}" d="${base_depth}" h="${base_height}" w="${base_width}" />
         </inertial>
-        <!-- 2) Add Visual for BASE -->
+        <!-- 2) Add Visual for Base -->
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -413,7 +415,7 @@ Ex:
             </geometry>
             <material name="Yellow" />
         </visual>
-        <!-- 3) Add Collision for BASE -->
+        <!-- 3) Add Collision for Base -->
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0 " />
             <geometry>
@@ -423,22 +425,22 @@ Ex:
         </collision>
     </link>
 
-    <!--///////////////////////////// FRONT RIGHT WHEEL ///////////////////////////////////////// -->
+    <!-- Front Right Wheel -->
     <!-- Constants -->
     <property name="wheel_mass" value="2.5" /><!-- in kg-->
     <property name="wheel_radius" value="0.2" /><!-- in m-->
     <property name="wheel_height" value="0.1" /><!-- in m-->
     <property name="ninety_degrees" value="1.5708" /><!-- in radians -->
     
-    <!--Actual front right wheel of the robot-->
+    <!--Actual Front Right Wheel of the robot-->
     <link name="f_r_wheel">
-        <!-- 1) Add Interia for FRONT RIGHT WHEEL -->
+        <!-- 1) Add Interia for Front Right Wheel -->
         <inertial>
             <mass value="${wheel_mass}" />
             <origin xyz="0 0 0" />
             <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
         </inertial>
-        <!-- 2) Add Visual for FRONT RIGHT WHEEL -->
+        <!-- 2) Add Visual for Front Right Wheel -->
         <visual>
             <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0" /><!-- 90 because we want the wheel up not flat down -->
             <geometry>
@@ -446,7 +448,7 @@ Ex:
             </geometry>
             <material name="Black" />
         </visual>
-        <!-- 3) Add Collision for FRONT RIGHT WHEEL -->
+        <!-- 3) Add Collision for Front Right Wheel -->
         <collision>
             <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0 " />
             <geometry>
@@ -454,17 +456,17 @@ Ex:
             </geometry>
         </collision>
     </link>
-
-    <!--///////////////////////////// BACK RIGHT WHEEL ///////////////////////////////////////// -->
-    <!--Actual front right wheel of the robot-->
+    
+    <!-- Back Right Wheel -->
+    <!-- Actual Back Right Wheel of the robot -->
     <link name="b_r_wheel">
-        <!-- 1) Add Interia for BACK RIGHT WHEEL -->
+        <!-- 1) Add Interia for Back Right Wheel -->
         <inertial>
             <mass value="${wheel_mass}" />
             <origin xyz="0 0 0" />
             <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
         </inertial>
-        <!-- 2) Add Visual for BACK RIGHT WHEEL -->
+        <!-- 2) Add Visual for Back Right Wheel -->
         <visual>
             <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0" /><!-- 90 because we want the wheel up not flat down -->
             <geometry>
@@ -472,7 +474,7 @@ Ex:
             </geometry>
             <material name="Black" />
         </visual>
-        <!-- 3) Add Collision for FRONT RIGHT WHEEL -->
+        <!-- 3) Add Collision for Back Right Wheel -->
         <collision>
             <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0 " />
             <geometry>
@@ -481,16 +483,16 @@ Ex:
         </collision>
     </link>
 
-    <!--///////////////////////////// FRONT LEFT WHEEL ///////////////////////////////////////// -->
-    <!--Actual front left wheel of the robot-->
+    <!-- Front Left Wheel -->
+    <!-- Actual Front Left Wheel of the robot-->
     <link name="f_l_wheel">
-        <!-- 1) Add Interia for FRONT LEFT WHEEL -->
+        <!-- 1) Add Interia for Front Left Wheel -->
         <inertial>
             <mass value="${wheel_mass}" />
             <origin xyz="0 0 0" />
             <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
         </inertial>
-        <!-- 2) Add Visual for FRONT LEFT WHEEL -->
+        <!-- 2) Add Visual for Front Left Wheel -->
         <visual>
             <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0" /><!-- 90 because we want the wheel up not flat down -->
             <geometry>
@@ -498,7 +500,7 @@ Ex:
             </geometry>
             <material name="Black" />
         </visual>
-        <!-- 3) Add Collision for FRONT LEFT WHEEL -->
+        <!-- 3) Add Collision for Front Left Wheel -->
         <collision>
             <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0 " />
             <geometry>
@@ -507,16 +509,16 @@ Ex:
         </collision>
     </link>
 
-    <!--///////////////////////////// BACK LEFT WHEEL ///////////////////////////////////////// -->
-    <!--Actual back left wheel of the robot-->
+    <!-- Back Left Wheel -->
+    <!-- Actual Back Left wheel of the robot -->
     <link name="b_l_wheel">
-        <!-- 1) Add Interia for BACK LEFT WHEEL -->
+        <!-- 1) Add Interia for Back Left Wheel -->
         <inertial>
             <mass value="${wheel_mass}" />
             <origin xyz="0 0 0" />
             <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
         </inertial>
-        <!-- 2) Add Visual for BACK LEFT WHEEL -->
+        <!-- 2) Add Visual for Back Left Wheel -->
         <visual>
             <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0" /><!-- 90 because we want the wheel up not flat down -->
             <geometry>
@@ -524,7 +526,7 @@ Ex:
             </geometry>
             <material name="Black" />
         </visual>
-        <!-- 3) Add Collision for BACK LEFT WHEEL -->
+        <!-- 3) Add Collision for Back Left Wheel -->
         <collision>
             <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0 " />
             <geometry>
@@ -532,6 +534,7 @@ Ex:
             </geometry>
         </collision>
     </link>
+
     <!--///////////////////////////// JOINTS ///////////////////////////////////////// -->
     <!-- Constants -->
     <property name="wheel_x_offset" value="0.25" /><!-- in m -->
@@ -541,7 +544,7 @@ Ex:
     <property name="wheel_p_offset" value="0.00" /><!-- pitch: in m -->
     <property name="wheel_ya_offset" value="0.00" /><!-- yaw:   in m -->
     
-    <!--Front right wheel <-> Base -->
+    <!--Front Right Wheel <-> Base -->
     <joint name="joint_f_r_wheel" type="continuous">
         <parent link="base_link" />
         <child link="f_r_wheel" />
@@ -551,7 +554,35 @@ Ex:
         <axis xyz="0 1 0" rpy="0 0 0" />
     </joint>
     
-    
+    <!--Back Right Wheel <-> Base -->
+    <joint name="joint_b_r_wheel" type="continuous">
+        <parent link="base_link" />
+        <child link="b_r_wheel" />
+        <origin xyz="${-1*wheel_x_offset} ${-1*wheel_y_offset} ${wheel_z_offset}" 
+                rpy="${wheel_r_offset} ${wheel_p_offset} ${wheel_ya_offset}" />
+        <!-- Axis of revoltuion. Right hand rule says Y will be rotating  -->
+        <axis xyz="0 1 0" rpy="0 0 0" />
+    </joint>
+
+    <!-- Front Left wheel <-> Base -->
+    <joint name="joint_f_l_wheel" type="continuous">
+        <parent link="base_link" />
+        <child link="f_l_wheel" />
+        <origin xyz="${wheel_x_offset} ${wheel_y_offset} ${wheel_z_offset}" 
+                rpy="${wheel_r_offset} ${wheel_p_offset} ${wheel_ya_offset}" />
+        <!-- Axis of revoltuion. Right hand rule says Y will be rotating  -->
+        <axis xyz="0 1 0" rpy="0 0 0" />
+    </joint>
+ 
+    <!-- Back Left Wheel <-> Base -->
+    <joint name="joint_b_l_wheel" type="continuous">
+        <parent link="base_link" />
+        <child link="b_l_wheel" />
+        <origin xyz="${-1*wheel_x_offset} ${wheel_y_offset} ${wheel_z_offset}" 
+                rpy="${wheel_r_offset} ${wheel_p_offset} ${wheel_ya_offset}" />
+        <!-- Axis of revoltuion. Right hand rule says Y will be rotating  -->
+        <axis xyz="0 1 0" rpy="0 0 0" />
+    </joint>   
 <!--///////////////////////////// END OF ROBOT ///////////////////////////////////////// -->
 </robot>
 ```
