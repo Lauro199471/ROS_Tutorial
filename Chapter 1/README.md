@@ -355,15 +355,91 @@ In order to create the URDF file from Xacro files, the Xacro file must contain a
  The main feature of Xacro is **Marcos**. When creating a macro, a simple ```<xacro>``` tag can expand into a statement or sequence of statements in the URDF/SDF file. Macros are extremely useful when statements are repeated or reused with modifications defined by parameters. 
 Ex:
 ```XML
- <xacro:macro name="inertial_matrix" params="mass">  
-  <inertial>       
-    <mass value="${mass}" />          
-      <inertia ixx="0.5" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="0.5" />   
-  </inertial> 
-</xacro:macro> 
+<?xml version="1.0"?>
+<!-- THIS IS NECESSARY -->
+<robot name="4dd_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!--//////////////////////////////////////////////////////////////////////////// -->
+    <!-- Defining the colors used in this robot -->
+    <material name="Yellow">
+        <color rgba="0.8 0.8 0 1" />
+    </material>
+    <material name="Black">
+        <color rgba="0.05 0.05 0.05 1" />
+    </material>
+    <!--//////////////////////////////////////////////////////////////////////////// -->
+    <!-- Macro for calculating inertia of cylinder -->
+    <macro name="cylinder_inertia" params="m r h">
+        <inertia ixx="${m*(3*r*r+h*h)/12}" ixy="0" ixz="0" iyx="0" iyy="${m*(3*r*r+h*h)/12}" iyz="0" izx="0" izy="0" izz="${m*r*r/2}" />
+    </macro>
+    <!-- Macro for calculating inertia of cube -->
+    <macro name="cube_inertia" params="w h d m">
+        <inertia ixx="${m*(d*d+h*h)/12}" ixy="0" ixz="0" iyx="0" iyy="${m*(w*w+d*d)/12}" iyz="0" izx="0" izy="0" izz="${m*(w*w+h*h)/12}" />
+    </macro>
+    <!--//////////////////////////////////////////////////////////////////////////// -->
+    <!-- BASE LINK -->
+    <property name="base_mass" value="5" />
+    <!-- in kg-->
+    <property name="base_depth" value="1" />
+    <!-- in m-->
+    <property name="base_height" value="0.25" />
+    <!-- in m-->
+    <property name="base_width" value="0.5" />
+    <!-- in m-->
+    <!--Actual body/chassis of the robot-->
+    <link name="base_link">
+        <!-- 1) Add Interia for Base -->
+        <inertial>
+            <mass value="${base_mass}" />
+            <origin xyz="0 0 0" />
+            <cube_inertia m="${base_mass}" d="${base_depth}" h="${base_height}" w="${base_width}" />
+        </inertial>
+        <!-- 2) Add Visual for Base -->
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="${base_depth} ${base_width} ${base_height}" />
+                <!--length(depth) x width x height -->
+            </geometry>
+            <material name="Yellow" />
+        </visual>
+        <!-- 3) Add Collision for Base -->
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0 " />
+            <geometry>
+                <box size="${base_depth} ${base_width} ${base_height} " />
+                <!--length(depth) x width x height -->
+            </geometry>
+        </collision>
+    </link>
+    <!-- FRONT RIGHT WHEEL  -->
+    <!--Actual body/chassis of the robot-->
+    <link name="f_r_wheel">
+        <!-- 1) Add Interia for Base -->
+        <inertial>
+            <mass value="${base_mass}" />
+            <origin xyz="0 0 0" />
+            <cube_inertia m="${base_mass}" d="${base_depth}" h="${base_height}" w="${base_width}" />
+        </inertial>
+        <!-- 2) Add Visual for Base -->
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="${base_depth} ${base_width} ${base_height}" />
+                <!--length(depth) x width x height -->
+            </geometry>
+            <material name="Yellow" />
+        </visual>
+        <!-- 3) Add Collision for Base -->
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0 " />
+            <geometry>
+                <box size="${base_depth} ${base_width} ${base_height} " />
+                <!--length(depth) x width x height -->
+            </geometry>
+        </collision>
+    </link>
+</robot>
 ```
-Here, the macro is named ```inertial_matrix```, and its parameter is mass. The mass parameter can be used inside the inertial definition using ```${mass}```.
-
 ## 7 DOF Arm using Xarco
 ![capture](https://user-images.githubusercontent.com/13907836/36492546-3df7322e-16e2-11e8-8d25-c4120dab8229.PNG)
 Let's start creating the seven DOF arm; the final output model of the robot arm is shown above.
