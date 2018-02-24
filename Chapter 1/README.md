@@ -469,7 +469,8 @@ Ex:
         <visual>
             <origin xyz="0 0 0" rpy="${ninety_degrees} 0 0" /><!-- 90 because we want the wheel up not flat down -->
             <geometry>
-                <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+                 <!-- <mesh filename="package://ros_robotics/Meshs/wheels.dae"/> -->
+		 <cylinder length="${wheel_height}" radius="${wheel_radius}" />
             </geometry>
             <material name="Black" />
         </visual>
