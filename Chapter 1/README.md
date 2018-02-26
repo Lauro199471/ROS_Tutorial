@@ -353,6 +353,10 @@ In order to create the URDF file from Xacro files, the Xacro file must contain a
  <robot name="4dd_robot" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
 ```
  The main feature of Xacro is **Marcos**. When creating a macro, a simple ```<xacro>``` tag can expand into a statement or sequence of statements in the URDF/SDF file. Macros are extremely useful when statements are repeated or reused with modifications defined by parameters. 
+### Adding Gazebo-specific Elements
+Specific elements unique to the Gazebo simulation environment are grouped into the following areas: 
+   * The ```<material>``` tags are used to specify the Gazebo color or texture for each link 
+Then you must save the file as a .gazebo file not .xacro
 Ex:
 ``` XML
 <?xml version="1.0"?>
