@@ -598,6 +598,11 @@ Ex:
     </joint>   
 
     <!--/////////////////////////// GAZEBO /////////////////////////////////////// -->
+    <link name="world"/>
+	<joint name="fixed" type="fixed">  
+	<parent link="world"/>  
+	<child link="base_link"/> 
+    </joint>
     <!-- Gazebo: Base_link -->
     <gazebo reference="Base">
         <material>Gazebo/Yellow</material>
