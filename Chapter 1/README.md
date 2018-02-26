@@ -356,7 +356,9 @@ In order to create the URDF file from Xacro files, the Xacro file must contain a
 ### Adding Gazebo-specific Elements
 Specific elements unique to the Gazebo simulation environment are grouped into the following areas: 
    * The ```<material>``` tags are used to specify the Gazebo color or texture for each link 
+   
 Then you must save the file as a .gazebo file not .xacro
+
 Ex:
 ``` XML
 <?xml version="1.0"?>
