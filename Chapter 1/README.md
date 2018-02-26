@@ -649,4 +649,20 @@ You can append the following arguments to the launch files to change the behavio
 
 - **debug**: Start gzserver (Gazebo Server) in debug mode using gdb (default false)
 
+EX: 
+```XML
+<launch>
+  <!--  Empty World for robot enviorment -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+	
+  <!-- Spawn dd_robot  into Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"  output="screen"
+     args="-file $(find ros_robotics)/urdf/4dd_robot.gazebo -urdf -model ddrobot" />
 
+</launch>
+```
