@@ -622,4 +622,18 @@ Ex:
   
   ``` $rosrun xacro xacro.py model.xacro > model.urdf```
 ### URDF TO Gazebo
-  To conver .urdf file to .gazebo just rename the .urdf file to .gazebo
+  To convert .urdf file to .gazebo just rename the .urdf file to .gazebo
+
+## Simulate the robot in Gazebo
+To simuulate the robot in Gazebo we must make a launch file. Here is an example of the launch file:
+``` XML
+<launch>
+  <!--  Empty World for robot enviorment -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+  <!-- Spawn dd_robot  into Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"  output="screen"
+     args="-file $(find ros_robotics)/urdf/4dd_robot.gazebo -urdf -model ddrobot" />
+
+</launch>
+```
