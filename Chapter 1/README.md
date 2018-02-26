@@ -357,15 +357,7 @@ In order to create the URDF file from Xacro files, the Xacro file must contain a
 Specific elements unique to the Gazebo simulation environment are grouped into the following areas: 
    * The ```<material>``` tags are used to specify the Gazebo color or texture for each link 
 
-### Fixing the robot to the world
-Since Gazebo simulates the physics of the real world ,  we need to attach our robot model to Gazebo's world frame.
-```XML
-<link name="world"/>
-   <joint name="fixed" type="fixed">  
-	<parent link="world"/>  
-	<child link="base_link"/> 
-    </joint>
-```
+
 Ex:
 ``` XML
 <?xml version="1.0"?>
@@ -598,16 +590,9 @@ Ex:
     </joint>   
 
     <!--/////////////////////////// GAZEBO /////////////////////////////////////// -->
-    <!-- Used for fixing the robot frame to Gazebo world frame -->	
-    <link name="world"/>
-	<joint name="fixed" type="fixed">  
-	<parent link="world"/>  
-	<child link="base_link"/> 
-    </joint>
     <!-- Gazebo: Base_link -->
     <gazebo reference="Base">
         <material>Gazebo/Yellow</material>
-        <pose>0 3 0 0 0 0</pose>
     </gazebo>
     <!-- Gazebo: Front Right_wheel -->
     <gazebo reference="Front_Right_Wheel">
@@ -632,7 +617,9 @@ Ex:
 ### Pose Tag
   The ```<pose>``` tage will move the geomety objects away from the origin by the specified 6D ( x y z roll pitch yaw) transform.
   
-## Xacro to URDF
+### Xacro to URDF
   To convert the .xacro file to .urdf file we have to be in the same directory as the .xacro file and run this command:
   
   ``` $rosrun xacro xacro.py model.xacro > model.urdf```
+### URDF TO Gazebo
+  To conver .urdf file to .gazebo just rename the .urdf file to .gazebo
