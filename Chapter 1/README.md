@@ -639,14 +639,14 @@ To simuulate the robot in Gazebo we must make a launch file. Here is an example 
 ```
 ## Add Arguments to the launch file
 You can append the following arguments to the launch files to change the behavior of Gazebo:
-	* **paused**: Start Gazebo in a paused state (default false)
-	
-	* **use_sim_time**: Tells ROS nodes asking for time to get the Gazebo-published simulation time, published over the ROS topic /clock (default true)
-	
-	* **gui**: Launch the user interface window of Gazebo (default true)
-	
-	* **headless (deprecated) recording (previously called headless)**: Enable gazebo state log recording
-	
-	* **debug**: Start gzserver (Gazebo Server) in debug mode using gdb (default false)
+- **paused**: Start Gazebo in a paused state (default false)
+
+- **use_sim_time**: Tells ROS nodes asking for time to get the Gazebo-published simulation time, published over the ROS topic /clock (default true)
+
+- **gui**: Launch the user interface window of Gazebo (default true)
+
+- **headless (deprecated) recording (previously called headless)**: Enable gazebo state log recording
+
+- **debug**: Start gzserver (Gazebo Server) in debug mode using gdb (default false)
 
 
