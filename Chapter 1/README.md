@@ -598,6 +598,7 @@ Ex:
     </joint>   
 
     <!--/////////////////////////// GAZEBO /////////////////////////////////////// -->
+    <!-- Used for fixing the robot frame to Gazebo world frame -->	
     <link name="world"/>
 	<joint name="fixed" type="fixed">  
 	<parent link="world"/>  
