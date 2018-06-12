@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/boeing">
+        <file>boeing_logo_1_440x200.png</file>
+    </qresource>
+</RCC>
