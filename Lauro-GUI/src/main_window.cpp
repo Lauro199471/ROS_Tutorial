@@ -38,11 +38,6 @@ MainWindow::MainWindow(QNode *node, QWidget *parent) :
     timer1ms = new QTimer(this);
     connect(timer1ms,SIGNAL(timeout()),this,SLOT(timerEvent_1ms()));
     timer1ms->start(1);
-
-    //disables write to line edits
-    ui.counterLineEdit->setReadOnly(true);
-    ui.nLineEdit->setReadOnly(true);
-    ui.userNameLineEdit->setReadOnly(true);
 }
 
 MainWindow::~MainWindow() {}
@@ -148,40 +143,3 @@ void MainWindow::closeEvent(QCloseEvent *event)
   QMainWindow::closeEvent(event);
 }
 
-
-// Timer Interrupt used to update count
-void MainWindow::timerEvent_1s(){
-  if (status == 3){
-    count += 2;
-  }
-  else if (status == 2){
-    count += 2;
-  }
-  else if (status == 1){
-    count += user_count_val;
-  }
-}
-
-// Timer Interrupt used to update GUI line
-void MainWindow::timerEvent_1ms(){
-  ui.counterLineEdit->setText(QString::number(count));
-  ui.nLineEdit->setText(QString::number(user_count_val));
-  ui.userNameLineEdit->setText(QString::fromStdString(received_string));
-}
-
-
-void MainWindow::on_userButton_clicked(){
-  count = 0;
-  status = 1;
-}
-
-void MainWindow::on_oddButton_clicked(){
-  count = 1;
-  status = 2;
-}
-
-void MainWindow::on_evenButton_clicked(){
-
-  count = 0;
-  status = 3;
-}
